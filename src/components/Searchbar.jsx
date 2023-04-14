@@ -11,7 +11,7 @@ export class Searchbar extends Component {
 
   upgradeSearchText = e => {
     e.preventDefault();
-    this.props.setState({ searchText: this.state.value });
+    this.props.searchText(this.state.value.trim());
   };
 
   render() {

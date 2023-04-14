@@ -8,14 +8,15 @@ export class App extends Component {
     query: '',
     searchText: '',
   };
+  handleSearchText = e => {
+    this.setState({ searchText: e });
+  };
 
   render() {
-    console.log(this.state.searchText);
-
     return (
       <>
-        <Searchbar searchText={this.state.searchText} />
-        <ImageGallery />
+        <Searchbar searchText={this.handleSearchText} />
+        <ImageGallery searchText={this.state.searchText} />
         <Button />
       </>
     );
