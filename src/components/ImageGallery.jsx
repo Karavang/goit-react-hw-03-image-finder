@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSearch } from 'source/api';
-import Loader from './Loader';
+
 import { ColorRing } from 'react-loader-spinner';
 
 // import { ImageGalleryItem } from './ImageGalleryItem';
