@@ -195,3 +195,9 @@ code {
 .Button:focus {
   background-color: #303f9f;
 }
+//Loading
+.loading-pos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

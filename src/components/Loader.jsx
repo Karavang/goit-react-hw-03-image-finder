@@ -1,17 +1,28 @@
-import { Audio } from 'react-loader-spinner';
+// import { ColorRing } from 'react-loader-spinner';
+// import { Component } from 'react';
 
-import React from 'react';
-
-export const Loader = () => {
-  return (
-    <Audio
-      height="80"
-      width="80"
-      radius="9"
-      color="green"
-      ariaLabel="three-dots-loading"
-      wrapperStyle
-      wrapperClass
-    />
-  );
-};
+// export default class Loader extends Component {
+//   state = {
+//     isLoading: this.props.isLoading,
+//   };
+//   render() {
+//     console.log(this.props.isLoading);
+//     if (this.state.isLoading) {
+//       return (
+//         <>
+//           <div className="loading-pos">
+//             <ColorRing
+//               visible={true}
+//               height="800"
+//               width="800"
+//               ariaLabel="blocks-loading"
+//               wrapperStyle={{}}
+//               wrapperClass="blocks-wrapper"
+//               colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+//             />
+//           </div>
+//         </>
+//       );
+//     }
+//   }
+// }
