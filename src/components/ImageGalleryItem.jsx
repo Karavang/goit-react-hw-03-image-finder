@@ -1,38 +1,37 @@
-import React from 'react';
-import * as basicLightbox from 'basiclightbox';
+import React, { Component } from 'react';
 
-export const ImageGalleryItem = image => {
-  console.log(image);
-  const full = basicLightbox.create(
-    `
-<img width="1400" height="900" src="${image.image.webformatURL}">
-`
-  );
-  return (
-    <li class="ImageGalleryItem" key={image.id}>
-      <div
+import { Modal } from './Modal';
+
+export class ImageGalleryItem extends Component {
+  state = {
+    image: this.props.image,
+    isFull: null,
+  };
+  render() {
+    return (
+      <li
+        class="ImageGalleryItem"
+        key={this.state.image.id}
         onKeyDown={e => {
           if (e.key === 'Escape') {
-            full.close();
+            this.setState({ isFull: false });
           }
         }}
       >
         <button
           className="btn"
           onClick={() => {
-            full.show();
+            this.setState({ isFull: true });
           }}
         >
+          <Modal image={this.state.image} isFull={this.state.isFull} />
           <img
             className="ImageGalleryItem-image"
-            src={image.image.webformatURL}
-            alt={image.image.tags}
-            onClick={() => {
-              full.show();
-            }}
+            src={this.state.image.webformatURL}
+            alt={this.state.image.tags}
           />
         </button>
-      </div>
-    </li>
-  );
-};
+      </li>
+    );
+  }
+}

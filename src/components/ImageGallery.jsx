@@ -3,6 +3,7 @@ import { fetchSearch } from 'source/api';
 
 import Loader from './Loader';
 import { ImageGalleryItem } from './ImageGalleryItem';
+import { Button } from './Button';
 
 // import { ImageGalleryItem } from './ImageGalleryItem';
 export class ImageGallery extends Component {
@@ -16,8 +17,8 @@ export class ImageGallery extends Component {
       this.props.searchText
     ) {
       this.setState({ isLoading: true });
-
-      fetchSearch(prevProps.searchText)
+      console.log(this.props.per);
+      fetchSearch(prevProps.searchText, this.props.per)
         .then(hits => {
           this.setState({ image: hits });
         })
@@ -32,11 +33,16 @@ export class ImageGallery extends Component {
       return (
         <>
           {this.state.isLoading && <Loader />}
-          <ul className="ImageGallery">
-            {this.state.image.hits.map(image => (
-              <ImageGalleryItem image={image} />
-            ))}
-          </ul>
+          {!this.state.isLoading && (
+            <div>
+              <ul className="ImageGallery">
+                {this.state.image.hits.map(image => (
+                  <ImageGalleryItem image={image} />
+                ))}
+              </ul>
+              <Button HandlePer={this.props.handlePer} />
+            </div>
+          )}
         </>
       );
     }
