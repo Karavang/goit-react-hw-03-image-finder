@@ -29,6 +29,7 @@ export class ImageGallery extends Component {
   }
 
   render() {
+    console.log('this.props', this.props);
     if (this.state.image) {
       return (
         <>
@@ -40,7 +41,7 @@ export class ImageGallery extends Component {
                   <ImageGalleryItem image={image} />
                 ))}
               </ul>
-              <Button HandlePer={this.props.handlePer} />
+              <Button handlePer={this.props.handlePer} />
             </div>
           )}
         </>

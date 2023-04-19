@@ -10,7 +10,7 @@ export class ImageGalleryItem extends Component {
   render() {
     return (
       <li
-        class="ImageGalleryItem"
+        className="ImageGalleryItem"
         key={this.state.image.id}
         onKeyDown={e => {
           if (e.key === 'Escape') {

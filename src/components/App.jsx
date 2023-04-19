@@ -24,7 +24,7 @@ export class App extends Component {
           searchText={this.state.searchText}
           handleisLoading={this.handleisLoading}
           per={this.state.per}
-          HandlePer={this.handlePer}
+          handlePer={this.handlePer}
         />
       </>
     );

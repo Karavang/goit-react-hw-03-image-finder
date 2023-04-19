@@ -6,6 +6,6 @@ export const Modal = ({ image, isFull }) => {
   <img width="1400" height="900" src="${image.largeImageURL}">
   `
   );
-  console.log(isFull);
+  // console.log(isFull);
   isFull ? full.show() : full.close();
 };
