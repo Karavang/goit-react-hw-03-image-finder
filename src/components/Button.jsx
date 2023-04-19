@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export class Button extends Component {
   render() {
-    console.log('this.props', this.props);
     return (
       <button
         className="Button image"
-        onClick={() => {
+        onClick={e => {
+          e.preventDefault();
           this.props.handlePer(12);
         }}
       >

@@ -17,8 +17,8 @@ export class ImageGallery extends Component {
       this.props.searchText
     ) {
       this.setState({ isLoading: true });
-      console.log(this.props.per);
-      fetchSearch(prevProps.searchText, this.props.per)
+
+      fetchSearch(prevProps.searchText, prevProps.per)
         .then(hits => {
           this.setState({ image: hits });
         })

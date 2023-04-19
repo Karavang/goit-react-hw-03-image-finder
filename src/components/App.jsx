@@ -16,7 +16,6 @@ export class App extends Component {
   };
 
   render() {
-    console.log(this.state.per);
     return (
       <>
         <Searchbar searchText={this.handleSearchText} />
