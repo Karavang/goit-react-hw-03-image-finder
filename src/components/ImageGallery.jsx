@@ -24,8 +24,9 @@ export class ImageGallery extends Component {
       fetchSearch(prevProps.searchText, prevProps.page)
         .then(hits => {
           console.log(hits.hits);
+          console.log(this.state.images);
           this.setState(prevState => ({
-            image: [prevState.images, ...hits.hits],
+            images: [...prevState.images, ...hits.hits],
           }));
         })
         .finally(() => {

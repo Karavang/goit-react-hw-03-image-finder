@@ -17,20 +17,16 @@ export class ImageGalleryItem extends Component {
             this.setState({ isFull: false });
           }
         }}
+        onClick={() => {
+          this.setState({ isFull: true });
+        }}
       >
-        <button
-          className="btn"
-          onClick={() => {
-            this.setState({ isFull: true });
-          }}
-        >
-          <Modal image={this.state.image} isFull={this.state.isFull} />
-          <img
-            className="ImageGalleryItem-image"
-            src={this.state.image.webformatURL}
-            alt={this.state.image.tags}
-          />
-        </button>
+        <Modal image={this.state.image} isFull={this.state.isFull} />
+        <img
+          className="ImageGalleryItem-image"
+          src={this.state.image.webformatURL}
+          alt={this.state.image.tags}
+        />
       </li>
     );
   }
