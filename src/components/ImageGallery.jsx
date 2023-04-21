@@ -23,9 +23,9 @@ export class ImageGallery extends Component {
 
       fetchSearch(prevProps.searchText, prevProps.page)
         .then(hits => {
-          console.log(hits);
+          console.log(hits.hits);
           this.setState(prevState => ({
-            image: [...prevState.images, ...hits],
+            image: [prevState.images, ...hits.hits],
           }));
         })
         .finally(() => {
@@ -36,15 +36,15 @@ export class ImageGallery extends Component {
 
   render() {
     console.log(this.state.images);
-    if (this.state.image) {
+    if (this.state.images) {
       return (
         <>
           {this.state.isLoading && <Loader />}
           {!this.state.isLoading && (
             <div>
               <ul className="ImageGallery">
-                {this.state.image.hits.map(image => (
-                  <ImageGalleryItem image={image} />
+                {this.state.images.map(images => (
+                  <ImageGalleryItem image={images} />
                 ))}
               </ul>
               <Button handlePer={this.props.handlePer} />
