@@ -5,8 +5,7 @@ export class Button extends Component {
     return (
       <button
         className="Button image"
-        onClick={e => {
-          e.preventDefault();
+        onClick={() => {
           this.props.handlePer(12);
         }}
       >
