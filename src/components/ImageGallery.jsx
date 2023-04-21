@@ -8,19 +8,25 @@ import { Button } from './Button';
 // import { ImageGalleryItem } from './ImageGalleryItem';
 export class ImageGallery extends Component {
   state = {
-    image: null,
     isLoading: false,
+    images: [],
   };
   componentDidUpdate(prevProps) {
     if (
-      prevProps.searchText !== this.props.searchText &&
-      this.props.searchText
+      (prevProps.searchText !== this.props.searchText &&
+        this.props.searchText) ||
+      prevProps.page !== this.props.page
     ) {
+      console.log(prevProps.page);
+      console.log(this.props.page);
       this.setState({ isLoading: true });
 
-      fetchSearch(prevProps.searchText, prevProps.per)
+      fetchSearch(prevProps.searchText, prevProps.page)
         .then(hits => {
-          this.setState({ image: hits });
+          console.log(hits);
+          this.setState(prevState => ({
+            image: [...prevState.images, ...hits],
+          }));
         })
         .finally(() => {
           this.setState({ isLoading: false });
@@ -29,7 +35,7 @@ export class ImageGallery extends Component {
   }
 
   render() {
-    console.log('this.props', this.props);
+    console.log(this.state.images);
     if (this.state.image) {
       return (
         <>
