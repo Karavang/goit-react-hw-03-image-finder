@@ -12,19 +12,18 @@ export class ImageGallery extends Component {
     images: [],
   };
   componentDidUpdate(prevProps) {
+    console.log(prevProps.searchText, this.props.searchText);
     if (
-      (prevProps.searchText !== this.props.searchText &&
-        this.props.searchText) ||
+      prevProps.searchText !== this.props.searchText ||
       prevProps.page !== this.props.page
     ) {
+      console.log(prevProps);
       console.log(prevProps.page);
-      console.log(this.props.page);
+      console.log(prevProps.searchText);
       this.setState({ isLoading: true });
 
-      fetchSearch(prevProps.searchText, prevProps.page)
+      fetchSearch(this.props.searchText, prevProps.page)
         .then(hits => {
-          console.log(hits.hits);
-          console.log(this.state.images);
           this.setState(prevState => ({
             images: [...prevState.images, ...hits.hits],
           }));

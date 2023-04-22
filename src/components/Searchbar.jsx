@@ -15,6 +15,7 @@ export class Searchbar extends Component {
   };
 
   render() {
+    console.log(this.state.value);
     return (
       <header className="searchbar">
         <form className="SearchForm" onSubmit={this.upgradeSearchText}>

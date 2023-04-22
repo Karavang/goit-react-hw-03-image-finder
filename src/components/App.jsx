@@ -6,7 +6,7 @@ export class App extends Component {
   state = {
     query: '',
     searchText: '',
-    page: 12,
+    page: 1,
   };
   handleSearchText = e => {
     this.setState({ searchText: e });
@@ -16,7 +16,7 @@ export class App extends Component {
   };
 
   render() {
-    console.log(this.state.page);
+    console.log(this.state.searchText);
     return (
       <>
         <Searchbar searchText={this.handleSearchText} />
