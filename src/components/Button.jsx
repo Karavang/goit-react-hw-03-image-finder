@@ -6,7 +6,7 @@ export class Button extends Component {
       <button
         className="Button image"
         onClick={() => {
-          this.props.handlePer(12);
+          this.props.handlePer(1);
         }}
       >
         Load more

@@ -4,6 +4,6 @@ const URL = `https://pixabay.com/api/?key=${API_KEY}`;
 export function fetchSearch(searchText, page) {
   console.log(page);
   return fetch(
-    `${URL}&q=${searchText}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${page}&page=1`
+    `${URL}&q=${searchText}&image_type=photo&orientation=horizontal&safesearch=true&per_page=12&page=${page}`
   ).then(res => res.json());
 }
