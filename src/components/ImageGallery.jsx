@@ -37,7 +37,7 @@ export class ImageGallery extends Component {
 
   render() {
     console.log(this.state.images);
-    if (this.state.images) {
+    if (this.state.images.length !== 0) {
       return (
         <>
           {this.state.isLoading && <Loader />}
